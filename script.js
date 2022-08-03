@@ -46,4 +46,12 @@ function game(){
         }
         console.log('Player:'+player+'-----'+'Computer:'+computer);
     }
+    if (player>computer) {
+        console.log('Player wins overall');
+    } else if (computer>player) {
+        console.log('Computer wins overall');
+    }
+    else {
+        console.log('Tie game')
+    }
 }
