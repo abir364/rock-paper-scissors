@@ -7,6 +7,7 @@ function getComputerChoice(){
     return sel.get(a);
 }
 
+//the following function is a random number generator in a specified range where the range starts from min and ends at max
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
