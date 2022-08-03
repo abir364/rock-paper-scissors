@@ -26,10 +26,24 @@ function playRound(playerSelection, computerChoice){
     return result.get(choice);
 }
 
+function iniate(){
+    let playerSelection = prompt("Enter your selection").toLowerCase();
+    let computerChoice = getComputerChoice();
+    return playRound(playerSelection,computerChoice);
+}
+
 function game(){
+    let player = 0;
+    let computer = 0;
     for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Enter your selection").toLowerCase();
-        let computerChoice = getComputerChoice();
-        console.log(playRound(playerSelection,computerChoice));
+        let result = iniate();
+        console.log(result);
+        if (result.includes('You win!')) {
+            player++;
+        } else if (result.includes('Draw!')){
+        }else {
+            computer++;
+        }
+        console.log('Player:'+player+'-----'+'Computer:'+computer);
     }
 }
