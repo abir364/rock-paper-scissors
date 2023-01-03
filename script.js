@@ -1,3 +1,8 @@
+//the following function is a random number generator in a specified range where the range starts from min and ends at max
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function getComputerChoice(){
     const sel = new Map();
     sel.set(1, 'rock');
@@ -5,11 +10,6 @@ function getComputerChoice(){
     sel.set(3, 'scissors');
     const a = randomIntFromInterval(1,3);
     return sel.get(a);
-}
-
-//the following function is a random number generator in a specified range where the range starts from min and ends at max
-function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function playRound(playerSelection, computerChoice){
@@ -56,3 +56,16 @@ function game(){
         console.log('Tie game')
     }
 }
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+rock.addEventListener('click', ()=>{
+    console.log('r');
+});
+paper.addEventListener('click', ()=>{
+    console.log('p');
+});
+scissors.addEventListener('click', ()=>{
+    console.log('s');
+});
