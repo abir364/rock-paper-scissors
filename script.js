@@ -36,19 +36,22 @@ function gameEnd(){
 }
 
 function showEndGame(){
-    const body = document.querySelector('body');
-    const rstdiv = document.querySelector('.lastdiv');
     const end = document.createElement('div');
+    const modal = document.querySelector('.modal');
+    const overlay = document.querySelector('.overlay');
     if(player>computer){
-        end.textContent = 'Player won';
+        end.textContent = 'Player wins!!!!';
     }
     else if(player<computer){
-        end.textContent = 'computer wins' ;
+        end.textContent = 'Computer wins 😔😔😔' ;
     }
     else{
         end.textContent = 'Tie';
     }
-    body.insertBefore(end, rstdiv);
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+    end.classList.add('winner-message');
+    modal.insertBefore(end, rst2);
 }
 
 const plr = document.querySelector('.plr');
