@@ -60,11 +60,13 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const rst = document.querySelector('#rst');
+const rst2 = document.querySelector('#rst2');
 
 rock.addEventListener('click', () => initiate('rock'));
 paper.addEventListener('click', () => initiate('paper'));
 scissors.addEventListener('click', () => initiate('scissors'));
 rst.addEventListener('click', () => restartGame());
+rst2.addEventListener('click', () => restartGame());
 
 function initiate(playerChoice){
     if(gameEnd()){

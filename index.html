@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>rock paper scissors</h1>
-    <div>
+
+    <div class = "header">
+        <img class="logo" src="assets/logo.png">
+        <h1>rock paper scissors</h1>
+    </div>
+
+    <div class="result-record">
         <div class="scorecard">Score</div>
-        <div class="plr">Player: </div>
-        <div class="com">Computer:</div>
+        <div class="card">
+            <div class="plr">Player: </div>
+            <div class="com">Computer:</div>
+        </div>
     </div>
-    <div>
+
+    <div class="round-result">
         <div class="winner">Winner:</div>
-        <div class="pc">Player choice </div>
-        <div class="cc">Computer choice</div>
+        <div class="round-card">
+            <div class="pc">Player choice </div>
+            <div class="cc">Computer choice</div>
+        </div>
     </div>
+
     <div class="btn-div">
         <button class="btn" id="rock">ROCK</button>
         <button class="btn" id="paper">PAPER</button>
@@ -26,5 +38,16 @@
     <div class="lastdiv">
         <button id="rst">restart</button>
     </div>
+
+    <div class="footer">
+        <p>Image credit goes to <a href="https://toppng.com/">toppng.com</a></p>
+        <p> Also to <a href="https://www.subpng.com/">subpng.com</a></p>
+    </div>
+
+    <div class="modal hidden">
+        <button id="rst2">Play again?</button>
+    </div>
+    <div class="overlay hidden"></div>
+
 </body>
 </html>
