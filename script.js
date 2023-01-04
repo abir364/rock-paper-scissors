@@ -1,6 +1,6 @@
 let player = 0;
 let computer = 0;
-let round = 0;
+let winner = '';
 
 
 //the following function is a random number generator in a specified range where the range starts from min and ends at max
@@ -20,54 +20,74 @@ function getComputerChoice(){
 function playRound(playerSelection, computerChoice){
     if(playerSelection === 'rock' && computerChoice === 'scissors' || playerSelection === 'paper' && computerChoice === 'rock' || playerSelection === 'scissors' && computerChoice === 'paper'){
         player++;
-        console.log('player wins');
-        round++;
+        winner = 'player';
     }
     else if(playerSelection === 'rock' && computerChoice === 'paper' || playerSelection === 'scissors' && computerChoice === 'rock' || playerSelection === 'paper' && computerChoice === 'scissors'){
         computer++;
-        console.log('computer wins');
-        round++;
+        winner = 'computer';
     }
     else{
-        console.log('Draw');
-        round++;
     }
+    updateScoreCard(winner, playerSelection, computerChoice);
 }
 
 function gameEnd(){
-    if(round === 5){
-        return true;
-    }
-    else{
-        return false;
-    }
+    return player === 5 || computer === 5;
 }
 
 function showEndGame(){
+    const body = document.querySelector('body');
+    const rstdiv = document.querySelector('.lastdiv');
+    const end = document.createElement('div');
     if(player>computer){
-        console.log('player wins');
+        end.textContent = 'Player won';
     }
     else if(player<computer){
-        console.log('computer wins');
+        end.textContent = 'computer wins' ;
     }
     else{
-        console.log('Tie');
+        end.textContent = 'Tie';
     }
+    body.insertBefore(end, rstdiv);
 }
 
-
+const plr = document.querySelector('.plr');
+const com = document.querySelector('.com');
+const w = document.querySelector('.winner');
+const pc = document.querySelector('.pc');
+const cc = document.querySelector('.cc');
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-rock.addEventListener('click', initiate('rock'));
-paper.addEventListener('click', initiate('paper'));
-scissors.addEventListener('click', initiate('scissors'));
+const rst = document.querySelector('#rst');
+
+rock.addEventListener('click', () => initiate('rock'));
+paper.addEventListener('click', () => initiate('paper'));
+scissors.addEventListener('click', () => initiate('scissors'));
+rst.addEventListener('click', () => restartGame());
 
 function initiate(playerChoice){
+    if(gameEnd()){
+        return ;
+    }
+    
+    const computerChoice = getComputerChoice();
+    playRound(playerChoice,computerChoice);
+
     if(gameEnd()){
         showEndGame();
         return ;
     }
-    const computerChoice = getComputerChoice();
-    playRound(playerChoice,computerChoice);
+}
+
+function updateScoreCard(winner, playerSelection, computerChoice){
+    w.textContent = 'Winner: ' + winner;
+    pc.textContent = 'Player choice ' + playerSelection;
+    cc.textContent = 'Computer choice '+ computerChoice;
+    plr.textContent = 'Player: ' + player;
+    com.textContent = 'Computer: ' + computer;
+}
+
+function restartGame(){
+    location.reload();
 }
